@@ -1,2 +1,2 @@
 # BloomFilter
-BloomFilter in C++
+BloomFilter in Python
