@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import random
+from jhash import jhash_short
 
 class HashFunction():
 
@@ -10,17 +11,7 @@ class HashFunction():
     self.b = random.randint(0,self.m)
 
   def base_hash_function(self,key):
-    hash=0
-    key = str(key)
-    for i in range(0,len(key)):
-      hash+=(ord(key[i]))
-      hash+=(hash << 10)
-      hash = hash  ^ ( hash >> 6)
-    
-    hash+=(hash << 3)
-    hash = hash ^ (hash >> 11)
-    hash+=(hash << 15)
-    return hash
+    return jhash_short(key)
   
   def convert(self,y):
     return (self.a * self.base_hash_function(y) + self.b) % self.m
@@ -50,22 +41,42 @@ class BloomFilter():
       ret = ret & self.bitVector[index]
     return ret
 
+"""
+class Experiment():
+  def __init__(self,B,M,K):
+    self.b = B
+    self.m = M
+    self.k = K
 
+  def make_experiment(self):
+    bf = BloomFilter(self.m,self.k)
+    for i in range(0,self.m):
+"""
 
-bf = BloomFilter(20000,3)
-##2000 inserions
-for i in range(0,20000):
-  rnumber = random.randint(0,2000) % 2000
-  rnumber = rnumber*2 + 1
-  bf.insert(rnumber)
+B = 150
+all = 0
+for i in range(0,B):
 
-counter = 0
-for i in range(0,20000):
-  rnumber = random.randint(0,2000) % 2000
-  rnumber = rnumber*2
-  result = bf.check(rnumber)
+  bf = BloomFilter(20000,13)
+  ##2000 inserions
+  for i in range(0,20000):
+    rnumber = random.randint(0,2000) % 2000 + 2000
+    rnumber = rnumber*2 + 1
+    bf.insert(str(rnumber))
 
-  if(result is True):
-    counter = counter+1
+  counter = 0
+  for i in range(0,20000):
+    rnumber = random.randint(0,2000) % 2000 + 2000
+    rnumber = rnumber*2
+    result = bf.check(str(rnumber))
 
-print counter
+    if(result is True):
+      counter = counter+1
+
+  all+=counter
+
+print all/B
+
+"""
+http://corte.si/%2Fposts/code/bloom-filter-rules-of-thumb/index.html
+"""
