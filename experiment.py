@@ -51,8 +51,8 @@ class Experiment():
 
 
 l=[]
-for i in range(2000,22000,1000):
-  exp1 = Experiment(150,2000,i,6)
+for i in range(1,21):
+  exp1 = Experiment(150,2000,20000,i)
   l.append(exp1.make_experiment())
 
 
@@ -67,21 +67,21 @@ from plotly.graph_objs import *
 
 trace1 = Scatter(
     x=l,
-    y=range(2000,22000,1000),
-    name="Graph1"
+    y=range(1,21),
+    name="Graph2"
 )
 
 data = Data([trace1])
 
 layout = Layout(
-    title='Constant number of HashFunctions',
+    title='Constant number of Vector Size',
     xaxis=XAxis(
         title='False Positive Probability',
         showgrid=False,
         zeroline=False
     ),
     yaxis=YAxis(
-        title='Number of Vector Size',
+        title='Number of Hash Functions',
         showline=False
     )
 )
