@@ -24,9 +24,9 @@ Jenkin's hash implementation is taken from http://stackoverflow.com/questions/32
 
 ## 2. Experiments.
 ##### 2.1 Number of Vector size VS False Positive Probability with constant number of HashFunctions
-![alt tag](https://raw.githubusercontent.com/erenyagdiran/bloomfilter/master/images/90123647.png)
-![alt tag](https://raw.githubusercontent.com/erenyagdiran/bloomfilter/master/images/exp1.png)
+![alt tag](https://raw.githubusercontent.com/m00dy/bloomfilter/master/images/90123647.png)
+![alt tag](https://raw.githubusercontent.com/m00dy/bloomfilter/master/images/exp1.png)
 
 ##### 2.2 Number of Hash Functions VS False Positive Probability with constant number of Vector Size
-![alt tag](https://raw.githubusercontent.com/erenyagdiran/bloomfilter/master/images/20861426.png)
-![alt tag](https://raw.githubusercontent.com/erenyagdiran/bloomfilter/master/images/exp2.png)
+![alt tag](https://raw.githubusercontent.com/m00dy/bloomfilter/master/images/20861426.png)
+![alt tag](https://raw.githubusercontent.com/m00dy/bloomfilter/master/images/exp2.png)
